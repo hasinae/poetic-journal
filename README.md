@@ -38,4 +38,14 @@ This project is inspired by the idea of integrating creativity into everyday tas
 ## Credits
 - Hasina Esteqlal
 - December 15, 2024
-- Personal Project 
+- Personal Project
+
+---
+## Developer to do list:
+- find a way to store the journal locally
+- implement music
+- implement a way to import files
+- have a start page where you chose to write or import
+- make an example scene
+- add more poetry
+- see if i can use AI to make it give it a more gameish feel
