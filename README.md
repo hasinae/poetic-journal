@@ -28,3 +28,11 @@ The goal of this project is to blend journaling with creative writing. By introd
 
 ## Acknowledgments
 This project is inspired by the idea of integrating creativity into everyday tasks. By combining journaling and poetry, Poetic Journal aims to turn simple reflections into an artistic experience.
+
+
+---
+
+## Credits
+Hasina Esteqlal
+December 15, 2024
+Personal Project 
