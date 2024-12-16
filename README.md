@@ -1,5 +1,5 @@
 # Poetic Journal
-
+https://hasinae.github.io/poetic-journal/
 Poetic Journal is a creative web-based tool that allows users to write journal entries with a unique twist: it automatically adds poetry between the lines of your entries. This project is built using Phaser and JavaScript, creating a dynamic and visually engaging experience for users.
 (This is an ongoing development)
 
