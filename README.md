@@ -33,6 +33,6 @@ This project is inspired by the idea of integrating creativity into everyday tas
 ---
 
 ## Credits
-Hasina Esteqlal
-December 15, 2024
-Personal Project 
+- Hasina Esteqlal
+- December 15, 2024
+- Personal Project 
