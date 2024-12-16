@@ -1,19 +1,25 @@
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+    background-color: black; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the screen */
+    flex-direction: column; /* Stack items vertically */
   }
   
   textarea {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
     width: 80%;
     height: 100px;
     font-size: 16px;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace; /* Typewriter-style font */
+    font-family: 'Courier New', Courier, monospace; 
+    background-color: #fff;
+    color: #000; /* Black text */
+    margin-top: 20px; /* Adds space between the top of the page and the textarea */  
   }
   
   button {
