@@ -233,8 +233,9 @@ function writeView(existingId) {
     el(
       "section",
       { class: "write" },
+      el("p", { class: "eyebrow" }, existing ? `${catalogNumber(existing.id)}, editing` : `${catalogNumber(null)}, draft`),
       el("h2", {}, existing ? "Edit entry" : "New entry"),
-      el("p", { class: "fine" }, existing ? formatDate(existing.createdAt) : formatDate(new Date().toISOString())),
+      el("p", { class: "fine", style: "margin-top: 16px" }, formatDate(existing?.createdAt ?? new Date().toISOString())),
       el("label", { for: "entryTitle", class: "label" }, "Title (optional)"),
       titleInput,
       el("label", { for: "entryBody", class: "label" }, "Entry"),
@@ -323,14 +324,9 @@ function entryView(id) {
     el(
       "article",
       { class: "entry" },
+      el("p", { class: "eyebrow" }, catalogNumber(entry.id)),
       el("h2", {}, entry.title || "Untitled"),
-      el(
-        "p",
-        { class: "fine" },
-        formatDate(entry.createdAt),
-        " · ",
-        el("span", { class: "mood" }, MOOD_LABELS[entry.mood] ?? entry.mood)
-      ),
+      plaque(entry),
       page,
       el(
         "div",
@@ -372,9 +368,10 @@ function exampleView() {
     el(
       "article",
       { class: "entry" },
-      el("p", { class: "eyebrow" }, "Example entry, not saved"),
+      el("p", { class: "eyebrow" }, "Example, not saved"),
       el("h2", {}, entry.title),
-      el("p", { class: "fine" }, "Each poem is chosen to match the paragraph above it. Reload for different lines."),
+      plaque(entry),
+      el("p", { class: "fine", style: "margin-top: 32px" }, "Each verse matches the paragraph above it. Reload for different lines."),
       page,
       el(
         "div",
@@ -393,13 +390,14 @@ function journalView() {
     ? el(
         "ol",
         { class: "list" },
-        entries.map((entry) =>
+        entries.map((entry, index) =>
           el(
             "li",
             {},
             el(
               "a",
               { href: `#/entry/${entry.id}`, class: "row" },
+              el("span", { class: "num" }, String(entries.length - index).padStart(3, "0")),
               el("span", { class: "row-title" }, entry.title || firstLine(entry.body)),
               el(
                 "span",
@@ -423,6 +421,7 @@ function journalView() {
     el(
       "section",
       { class: "journal" },
+      el("p", { class: "eyebrow" }, entries.length === 1 ? "1 entry" : `${entries.length} entries`),
       el("h2", {}, "Your journal"),
       list,
       el(
@@ -464,6 +463,28 @@ function notFoundView() {
       el("p", { class: "lede" }, "That entry may have been deleted, or it lives in a different browser."),
       el("div", { class: "menu" }, link("#/journal", "Your journal", "button primary"))
     )
+  );
+}
+
+/** Catalog number by writing order: the first entry ever is No. 001. */
+function catalogNumber(id) {
+  const oldestFirst = listEntries().reverse();
+  const index = oldestFirst.findIndex((entry) => entry.id === id);
+  return formatNumber(index === -1 ? oldestFirst.length + 1 : index + 1);
+}
+
+function formatNumber(n) {
+  return `No. ${String(n).padStart(3, "0")}`;
+}
+
+function plaque(entry) {
+  const mood = MOOD_LABELS[entry.mood] ?? entry.mood;
+  return el(
+    "ul",
+    { class: "plaque" },
+    el("li", {}, formatDate(entry.createdAt)),
+    el("li", {}, "Words and verse"),
+    el("li", {}, "Mood: ", el("strong", {}, mood.charAt(0).toUpperCase() + mood.slice(1)))
   );
 }
 

@@ -19,7 +19,8 @@ The goal of this project is to blend journaling with creative writing. Poetry sl
 - **Import / export**: import a `.txt` or `.md` file as a new woven entry, export your journal as Markdown, or download a `.json` backup and restore it later.
 - **Ambient music**: a soft generated pad (Web Audio, no audio files) you can switch on while writing.
 - **Edit and delete**: edit an entry to reweave it, or delete it.
-- Works on phones, keyboard and screen readers; follows your light or dark mode.
+- **Gallery design**: a white, minimal page in typewriter type. Entries are numbered like works in a show (No. 001) with a wall-label plaque for date and mood, and the journal reads like a gallery checklist.
+- Works on phones, keyboard and screen readers.
 
 ---
 
@@ -69,6 +70,5 @@ This project is inspired by the idea of integrating creativity into everyday tas
 - [x] start page to choose write or import
 - [x] example entry
 - [x] more poetry
-- [ ] use AI to write lines from the entry itself, for a more game-like feel
-- [ ] themes (paper colors, fonts)
+- [x] gallery-white typewriter design
 - [ ] search and filter the journal by mood
