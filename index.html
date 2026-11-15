@@ -4,12 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Poetic Journal</title>
-  <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+  <meta name="description" content="A journal that writes poetry between your lines.">
+  <meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1916" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%237b4397'/%3E%3Ctext x='16' y='22' font-family='Courier New,monospace' font-size='18' font-weight='700' fill='%23fff' text-anchor='middle'%3Ep%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="src/app.js"></script>
 </head>
 <body>
-  <textarea id="journalInput" placeholder="Write your journal entry here..."></textarea>
-  <button id="submitButton">Submit</button>
-  <script src="./src/Scenes/Journal.js" defer></script>
+  <a class="skip" href="#app">Skip to content</a>
+  <header class="bar">
+    <a href="#/" class="wordmark" data-nav="home">Poetic Journal</a>
+    <nav aria-label="Main">
+      <a href="#/write" data-nav="write">Write</a>
+      <a href="#/journal" data-nav="journal">Journal</a>
+      <button type="button" id="ambientButton" class="chip" aria-pressed="false">&#9834; Music off</button>
+    </nav>
+  </header>
+
+  <main id="app" class="sheet">
+    <noscript><p>Poetic Journal needs JavaScript to write and save entries.</p></noscript>
+  </main>
+
+  <input type="file" id="fileInput" accept=".txt,.md,.markdown,.json,text/plain,text/markdown,application/json" hidden>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
